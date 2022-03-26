@@ -4,5 +4,8 @@
   "description": "API con express.",
   "main": "index.js",
   "author": "Pedro del Río",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  }
 }
