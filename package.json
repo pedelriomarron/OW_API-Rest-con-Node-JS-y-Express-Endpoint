@@ -1,0 +1,8 @@
+{
+  "name": "api_express",
+  "version": "0.0.1",
+  "description": "API con express.",
+  "main": "index.js",
+  "author": "Pedro del Río",
+  "license": "MIT"
+}
