@@ -58,8 +58,27 @@ async function getTask(req,res){
 
 }
 
+async function updateTask(req,res){
+    const idTask= req.params.id
+    const params= req.body
+
+    try {
+        const task = await Task.findByIdAndUpdate(idTask,params)
+        if(!task){
+            res.status(400).send({msg:"No se ha podido actualizar la tarea"})
+        }else{
+            res.status(200).send({msg:"actualizacion compleatada"})
+        }
+
+    } catch (error) {
+        res.status(500).send(error)
+    }
+
+}
+
 module.exports = {
     createTask,
     getTasks,
     getTask,
+    updateTask
 }
