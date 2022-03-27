@@ -55,7 +55,13 @@ async function login(req,res){
 } 
 
 
+function protected(req,res){
+
+    res.status(200).send({msg:"Contenido protegido OK"})
+}
+
 module.exports={
     register,
     login,
+    protected
 }

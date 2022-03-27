@@ -14,5 +14,5 @@ function decodeToken(token){
 }
 
 module.exports = {
-    createToken,decodeToken
+    createToken,decodeToken,SECRET_KEY
 }
