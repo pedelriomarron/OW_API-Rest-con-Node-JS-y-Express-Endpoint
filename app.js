@@ -8,3 +8,6 @@ const hello_routes = require("./routes/hello")
 app.use("/api",hello_routes)
 
 module.exports = app
+
+
+// mongodb+srv://usuario:<password>@ow-db.ly6qc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
