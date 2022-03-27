@@ -39,7 +39,27 @@ async function getTasks(req,res){
     }
 }
 
+async function getTask(req,res){
+    
+    const idTask= req.params.id
+
+    try {
+        const task = await Task.findById(idTask)
+
+        if(!task){
+            res.status(400).send({msg:"No se ha encontrado la tarea"})
+        }else{
+            res.status(200).send(task)
+        }
+
+    } catch (error) {
+        res.status(500).send(error)
+    }
+
+}
+
 module.exports = {
     createTask,
     getTasks,
+    getTask,
 }
