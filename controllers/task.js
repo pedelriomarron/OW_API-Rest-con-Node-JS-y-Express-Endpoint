@@ -76,9 +76,27 @@ async function updateTask(req,res){
 
 }
 
+async function deleteTask(req,res){
+    const idTask= req.params.id
+
+    try {
+        const task = await Task.findByIdAndDelete(idTask)
+        if(!task){
+            res.status(400).send({msg:"No se ha podido borrar la tarea"})
+        }else{
+            res.status(200).send({msg:"borrado compleatado"})
+        }
+
+    } catch (error) {
+        res.status(500).send(error)
+    }
+
+}
+
 module.exports = {
     createTask,
     getTasks,
     getTask,
-    updateTask
+    updateTask,
+    deleteTask
 }
