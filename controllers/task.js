@@ -23,8 +23,23 @@ async function createTask(req,res){
     }
 }
 
+async function getTasks(req,res){
+    try {
+        const tasks = await Task.find({completed:false}).sort({ created_at:-1})
 
+        if(!tasks){
+            res.status(400).send({msg:"Error al obtener las tareas"})
+        }else{
+            res.status(200).send(tasks)
+        }
+
+
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}
 
 module.exports = {
-    createTask
+    createTask,
+    getTasks,
 }
