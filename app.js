@@ -1,13 +1,18 @@
 const express = require("express")
 const app = express()
 
+//Enviar JSON
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 // Cargar rutas
 const hello_routes = require("./routes/hello")
+const task_routes = require("./routes/task")
 
 // Rutas base
 app.use("/api",hello_routes)
+app.use("/api",task_routes)
 
 module.exports = app
 
 
-// mongodb+srv://usuario:<password>@ow-db.ly6qc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
